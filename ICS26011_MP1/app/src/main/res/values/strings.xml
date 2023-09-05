@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ICS26011_MP1</string>
+    <string name="this_is_our_app">This is our App</string>
+    <string name="enter_your_text_here">Enter your text here</string>
+    <string name="checkbox1">CheckBox</string>
+    <string name="checkbox2">CheckBox</string>
+    <string name="radiobutton1">RadioButton</string>
+    <string name="radiobutton2">RadioButton</string>
+    <string name="firstCheckboxHint">firstCheckbox</string>
+    <string name="secondCheckboxHint">secondCheckbox</string>
+    <string name="imageButtonContentDescription">Button</string>
+    <string name="firstRadioHint">firstRadio</string>
+    <string name="secondRadioHint">secondRadio</string>
+</resources>
