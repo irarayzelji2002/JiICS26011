@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/src_12bg"
+    tools:context=".Happy2Feeling">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/main_app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@null"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutDirection="ltr"
+            android:textDirection="rtl"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+            app:menu="@menu/top_menu"
+            app:popupTheme="@style/Theme.AppCompat.Light" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gilroyblack"
+        android:gravity="center"
+        android:text="Are you feeling...?"
+        android:textColor="@color/pink"
+        android:textSize="42sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="120dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/main_app_bar_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="70dp">
+
+            <RadioGroup
+                android:id="@+id/radioGroupHappy"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="56dp"
+                app:layout_constraintBottom_toTopOf="@+id/buttonBack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/status_text">
+
+                <RadioButton
+                    android:id="@+id/radioButtonPlayful"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radio_selector_happy1"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/gilroymedium"
+                    android:text="Playful"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/radio_textcolor_happy1"
+                    android:textSize="17dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupPlayful"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonAroused"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Aroused"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonCheeky"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Cheeky"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+                </RadioGroup>
+
+                <RadioButton
+                    android:id="@+id/radioButtonContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/radio_selector_happy1"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/gilroymedium"
+                    android:text="Content"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/radio_textcolor_happy1"
+                    android:textSize="17dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonFree"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Free"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonJoyful"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Joyful"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+                </RadioGroup>
+
+                <RadioButton
+                    android:id="@+id/radioButtonInterested"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/radio_selector_happy1"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/gilroymedium"
+                    android:text="Interested"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/radio_textcolor_happy1"
+                    android:textSize="17dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupInterested"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonCurious"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Curious"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonInquisitive"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Inquisitive"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+                </RadioGroup>
+
+                <RadioButton
+                    android:id="@+id/radioButtonProud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/radio_selector_happy1"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/gilroymedium"
+                    android:text="Proud"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/radio_textcolor_happy1"
+                    android:textSize="17dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupProud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonSuccessful"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Successful"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonConfident"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Confident"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+                </RadioGroup>
+
+                <RadioButton
+                    android:id="@+id/radioButtonAccepted"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/radio_selector_happy1"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/gilroymedium"
+                    android:text="Accepted"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/radio_textcolor_happy1"
+                    android:textSize="17dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupAccepted"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonRespected"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Respected"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonValued"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Valued"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+                </RadioGroup>
+
+                <RadioButton
+                    android:id="@+id/radioButtonPowerful"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/radio_selector_happy1"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/gilroymedium"
+                    android:text="Powerful"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/radio_textcolor_happy1"
+                    android:textSize="17dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupPowerful"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonCourageous"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Courageous"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonCreative"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Creative"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+                </RadioGroup>
+
+                <RadioButton
+                    android:id="@+id/radioButtonPeaceful"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/radio_selector_happy1"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/gilroymedium"
+                    android:text="Peaceful"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/radio_textcolor_happy1"
+                    android:textSize="17dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupPeaceful"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonLoving"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Loving"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonThankful"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Thankful"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+                </RadioGroup>
+
+                <RadioButton
+                    android:id="@+id/radioButtonTrusting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/radio_selector_happy1"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/gilroymedium"
+                    android:text="Trusting"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/radio_textcolor_happy1"
+                    android:textSize="17dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupTrusting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonSensitive"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Sensitive"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonIntimate"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Intimate"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+                </RadioGroup>
+
+                <RadioButton
+                    android:id="@+id/radioButtonOptimistic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/radio_selector_happy1"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/gilroymedium"
+                    android:text="Optimistic"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/radio_textcolor_happy1"
+                    android:textSize="17dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupOptimistic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonHopeful"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Hopeful"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonInspired"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_selector_happy2"
+                        android:button="@android:color/transparent"
+                        android:fontFamily="@font/gilroymedium"
+                        android:text="Inspired"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/radio_textcolor_happy2"
+                        android:textSize="17dp" />
+                </RadioGroup>
+            </RadioGroup>
+        </ScrollView>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scroll to view more"
+        android:textColor="@color/white"
+        android:fontFamily="@font/gilroymedium"
+        android:textAlignment="center"
+        android:layout_marginBottom="47dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="?android:selectableItemBackground"
+        android:fontFamily="@font/gilroymedium"
+        android:text="Back"
+        android:textSize="24sp"
+        app:icon="@drawable/ic_prev"
+        app:iconSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="-8dp"
+        android:layout_marginBottom="8dp"
+        android:background="?android:selectableItemBackground"
+        android:fontFamily="@font/gilroymedium"
+        android:layoutDirection="rtl"
+        android:text="Continue"
+        android:textSize="24sp"
+        app:icon="@drawable/ic_next"
+        app:iconSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

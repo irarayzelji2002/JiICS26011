@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+            <solid android:id="@+id/radio_selected_color" android:color="#64349d"/>
+            <corners android:radius="50dp"/>
+        </shape>
+    </item>
+    <item android:state_checked="false">
+        <shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+            <solid android:id="@+id/radio_normal_color" android:color="@color/violetbtn"/>
+            <corners android:radius="50dp"/>
+        </shape>
+    </item>
+</selector>

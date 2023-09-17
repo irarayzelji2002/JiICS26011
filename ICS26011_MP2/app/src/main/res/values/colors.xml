@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="pink">#a43b5a</color>
+    <color name="pinkbtn">#ff70b1</color>
+    <color name="yellowbtn">#fbb254</color>
+    <color name="orange">#cb4828</color>
+    <color name="darkorangebtn">#ec6c4c</color>
+    <color name="darkpink">#7b2c43</color>
+    <color name="lightpinkbtn">#faaeb5</color>
+    <color name="verylightpinkbtn">#ffccc6</color>
+    <color name="violetbtn">#9b6bd4</color>
+    <color name="purplebtn">#bea6f8</color>
+    <color name="darkblue">#2b3f6d</color>
+    <color name="lightbluebtn">#6fc4fd</color>
+    <color name="bluebtn">#2cafff</color>
+    <color name="peachbtn">#f69982</color>
+    <color name="lightpeachbtn">#f6c8b0</color>
+    <color name="bluegreenbtn">#58889c</color>
+    <color name="greenbtn">#68726a</color>
+    <color name="lightorangebtn">#ef8956</color>
+    <color name="orangepeachbtn">#ffb995</color>
+    <color name="grey">#868686</color>
+    <color name="purple2btn">#af8cd9</color>
+    <color name="lightblue2btn">#59b2e9</color>
+    <color name="olivebtn">#c4b075</color>
+</resources>

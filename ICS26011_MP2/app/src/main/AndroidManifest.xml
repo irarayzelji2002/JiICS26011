@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/homeyfeel_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/homeyfeel_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ICS26011_MP2"
+        tools:targetApi="31">
+        <activity
+            android:name=".Fearful3Quote"
+            android:exported="false" />
+        <activity
+            android:name=".Fearful2Feeling"
+            android:exported="false" />
+        <activity
+            android:name=".Angry3Quote"
+            android:exported="false" />
+        <activity
+            android:name=".Angry2Feeling"
+            android:exported="false" />
+        <activity
+            android:name=".Bad3Quote"
+            android:exported="false" />
+        <activity
+            android:name=".Bad2Feeling"
+            android:exported="false" />
+        <activity
+            android:name=".Disgusted3Quote"
+            android:exported="false" />
+        <activity
+            android:name=".Disgusted2Feeling"
+            android:exported="false" />
+        <activity
+            android:name=".Surprised3Quote"
+            android:exported="false" />
+        <activity
+            android:name=".Surprised2Feeling"
+            android:exported="false" />
+        <activity
+            android:name=".Sad3Quote"
+            android:exported="false" />
+        <activity
+            android:name=".Sad2Feeling"
+            android:exported="false" />
+        <activity
+            android:name=".Happy3Quote"
+            android:exported="false" />
+        <activity
+            android:name=".Happy2Feeling"
+            android:exported="false" />
+        <activity
+            android:name=".Fearful1Question"
+            android:exported="false" />
+        <activity
+            android:name=".Bad1Question"
+            android:exported="false" />
+        <activity
+            android:name=".Angry1Question"
+            android:exported="false" />
+        <activity
+            android:name=".Disgusted1Question"
+            android:exported="false" />
+        <activity
+            android:name=".Surprised1Question"
+            android:exported="false" />
+        <activity
+            android:name=".Sad1Question"
+            android:exported="false" />
+        <activity
+            android:name=".Happy1Question"
+            android:exported="false" />
+        <activity
+            android:name=".Info"
+            android:exported="false" />
+        <activity
+            android:name=".Home"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
