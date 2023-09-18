@@ -54,7 +54,7 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="170dp"
+            android:layout_width="160dp"
             android:layout_height="170dp"
             android:layout_centerHorizontal="true"
             app:srcCompat="@drawable/src_01button" />
@@ -66,7 +66,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="48dp"
             android:fontFamily="@font/gilroymedium"
-            android:text="You have selected"
+            android:text="Your selection"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16sp" />
@@ -97,20 +97,22 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.301" />
+        app:layout_constraintVertical_bias="0.301"
+        android:backgroundTint="@android:color/transparent"/>
 
     <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/gifImageButtonSad"
-        android:contentDescription="Sad"
         android:layout_width="118dp"
         android:layout_height="118dp"
-        android:scaleType="fitCenter"
         android:adjustViewBounds="true"
-        android:src="@drawable/src_20sad"
         android:background="?android:selectableItemBackground"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="Sad"
+        android:scaleType="fitCenter"
+        android:src="@drawable/src_20sad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.930"
+        app:layout_constraintHorizontal_bias="0.962"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.406" />
@@ -129,7 +131,9 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintVertical_bias="0.611"
+        android:layout_marginRight="-8dp"
+        android:backgroundTint="@android:color/transparent"/>
 
     <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/gifImageButtonDisgusted"
@@ -145,7 +149,8 @@
         app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791" />
+        app:layout_constraintVertical_bias="0.791"
+        android:backgroundTint="@android:color/transparent"/>
 
     <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/gifImageButtonAngry"
@@ -161,7 +166,8 @@
         app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791" />
+        app:layout_constraintVertical_bias="0.791"
+        android:backgroundTint="@android:color/transparent"/>
 
     <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/gifImageButtonBad"
@@ -177,20 +183,23 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintVertical_bias="0.611"
+        android:layout_marginLeft="-8dp"
+        android:backgroundTint="@android:color/transparent"/>
 
     <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/gifImageButtonFearful"
-        android:contentDescription="Fearful"
         android:layout_width="118dp"
         android:layout_height="118dp"
-        android:scaleType="fitCenter"
         android:adjustViewBounds="true"
-        android:src="@drawable/src_70fearful"
         android:background="?android:selectableItemBackground"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="Fearful"
+        android:scaleType="fitCenter"
+        android:src="@drawable/src_70fearful"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.090"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.406" />
@@ -204,6 +213,7 @@
         android:minHeight="65dp"
         android:text="Continue"
         android:textSize="24sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

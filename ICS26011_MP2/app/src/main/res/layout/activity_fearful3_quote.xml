@@ -72,6 +72,7 @@
         android:minHeight="65dp"
         android:text="Another Quote"
         android:textSize="24sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
@@ -100,7 +101,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"
-        android:background="?android:selectableItemBackground"
         android:fontFamily="@font/gilroymedium"
         android:text="Back"
         android:textSize="24sp"
@@ -111,5 +111,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@android:color/transparent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

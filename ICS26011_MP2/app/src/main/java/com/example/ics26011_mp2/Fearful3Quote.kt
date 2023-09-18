@@ -55,10 +55,10 @@ class Fearful3Quote : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.nav_home -> {
-                startActivity(Intent(this, Home::class.java))
+                startActivity(Intent(this, Home::class.java).putExtra("EMOTION", "Fearful"))
             }
             R.id.nav_info -> {
-                startActivity(Intent(this, Info::class.java))
+                startActivity(Intent(this, Info::class.java).putExtra("EMOTION", "Fearful"))
             }
         }
         return super.onOptionsItemSelected(item)

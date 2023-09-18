@@ -199,10 +199,10 @@ class Happy2Feeling : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.nav_home -> {
-                startActivity(Intent(this, Home::class.java))
+                startActivity(Intent(this, Home::class.java).putExtra("EMOTION", "Happy"))
             }
             R.id.nav_info -> {
-                startActivity(Intent(this, Info::class.java))
+                startActivity(Intent(this, Info::class.java).putExtra("EMOTION", "Happy"))
             }
         }
         return super.onOptionsItemSelected(item)

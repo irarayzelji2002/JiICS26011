@@ -11,7 +11,7 @@
         android:id="@+id/main_app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@null"
+        android:background="@drawable/actionbarbg"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
@@ -33,10 +33,10 @@
         android:gravity="center"
         android:text="Are you feeling...?"
         android:textColor="@color/pink"
-        android:textSize="42sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.17" />
@@ -358,7 +358,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"
-        android:background="?android:selectableItemBackground"
         android:fontFamily="@font/gilroymedium"
         android:text="Back"
         android:textColor="@color/pink"
@@ -369,7 +368,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@android:color/transparent"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonNext"
@@ -377,7 +377,6 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="-8dp"
         android:layout_marginBottom="18dp"
-        android:background="?android:selectableItemBackground"
         android:fontFamily="@font/gilroymedium"
         android:layoutDirection="rtl"
         android:text="Continue"
@@ -389,7 +388,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@android:color/transparent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

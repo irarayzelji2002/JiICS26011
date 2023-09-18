@@ -11,6 +11,8 @@ class Fearful1Question : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fearful1_question)
+        setSupportActionBar(findViewById(R.id.main_toolbar))
+        getSupportActionBar()?.setDisplayShowTitleEnabled(false)
 
         val back = findViewById<Button>(R.id.buttonBack)
         back.setOnClickListener {
@@ -45,10 +47,10 @@ class Fearful1Question : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.nav_home -> {
-                startActivity(Intent(this, Home::class.java))
+                startActivity(Intent(this, Home::class.java).putExtra("EMOTION", "Fearful"))
             }
             R.id.nav_info -> {
-                startActivity(Intent(this, Info::class.java))
+                startActivity(Intent(this, Info::class.java).putExtra("EMOTION", "Fearful"))
             }
         }
         return super.onOptionsItemSelected(item)

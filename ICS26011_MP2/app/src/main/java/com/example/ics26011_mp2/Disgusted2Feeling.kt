@@ -123,10 +123,10 @@ class Disgusted2Feeling : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.nav_home -> {
-                startActivity(Intent(this, Home::class.java))
+                startActivity(Intent(this, Home::class.java).putExtra("EMOTION", "Disgusted"))
             }
             R.id.nav_info -> {
-                startActivity(Intent(this, Info::class.java))
+                startActivity(Intent(this, Info::class.java).putExtra("EMOTION", "Disgusted"))
             }
         }
         return super.onOptionsItemSelected(item)

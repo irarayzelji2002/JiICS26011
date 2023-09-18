@@ -47,10 +47,10 @@ class Surprised1Question : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.nav_home -> {
-                startActivity(Intent(this, Home::class.java))
+                startActivity(Intent(this, Home::class.java).putExtra("EMOTION", "Surprised"))
             }
             R.id.nav_info -> {
-                startActivity(Intent(this, Info::class.java))
+                startActivity(Intent(this, Info::class.java).putExtra("EMOTION", "Surprised"))
             }
         }
         return super.onOptionsItemSelected(item)

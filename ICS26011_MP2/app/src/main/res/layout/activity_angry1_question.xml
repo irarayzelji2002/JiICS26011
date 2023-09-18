@@ -40,52 +40,59 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.433" />
 
-    <Button
-        android:id="@+id/buttonSure"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="280dp"
-        android:backgroundTint="@color/peachbtn"
-        android:fontFamily="@font/gilroymedium"
-        android:minHeight="65dp"
-        android:text="Sure!"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBack"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status_text"
+        app:layout_constraintVertical_bias="0.082">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonNoThanks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="280dp"
-        android:backgroundTint="@color/lightpeachbtn"
-        android:fontFamily="@font/gilroymedium"
-        android:minHeight="65dp"
-        android:text="No Thanks"
-        android:textSize="24sp"
-        android:textColor="@color/pink"
-        app:strokeColor="@color/peachbtn"
-        app:strokeWidth="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.786"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/buttonSure"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/peachbtn"
+            android:fontFamily="@font/gilroymedium"
+            android:minHeight="65dp"
+            android:text="Sure!"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonNoThanks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightpeachbtn"
+            android:fontFamily="@font/gilroymedium"
+            android:minHeight="65dp"
+            android:text="No Thanks"
+            android:textColor="@color/pink"
+            android:textSize="24sp"
+            app:strokeColor="@color/peachbtn"
+            app:strokeWidth="4dp" />
+    </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"
-        android:background="?android:selectableItemBackground"
         android:fontFamily="@font/gilroymedium"
         android:text="Back"
         android:textSize="24sp"
+        android:textColor="@color/white"
         app:icon="@drawable/ic_prev"
         app:iconSize="25dp"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@android:color/transparent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
