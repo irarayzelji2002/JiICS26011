@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ICS26011_Activity_100323_OOP</string>
+    <string-array name="Accesses">
+        <item>User</item>
+        <item>Admin</item>
+    </string-array>
+</resources>
