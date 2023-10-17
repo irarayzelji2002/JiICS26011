@@ -157,8 +157,8 @@ class ValidationClass {
                 ).years
             if (birthday.isNullOrEmpty()) {
                 ErrMsg = "Birthday field is required."
-            } else if (age>18){
-                ErrMsg = "You are $age years old."
+            } else if (age<18){
+                ErrMsg = "You are not 18 years old and above."
             }
             else {
                 go == true
@@ -170,5 +170,4 @@ class ValidationClass {
         }
         return Pair(go, ErrMsg)
     }
-
 }

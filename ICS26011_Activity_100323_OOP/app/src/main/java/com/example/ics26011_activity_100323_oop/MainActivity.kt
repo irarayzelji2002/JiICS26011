@@ -1,14 +1,19 @@
 package com.example.ics26011_activity_100323_oop
 
 import android.app.DatePickerDialog
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.Window
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
 import java.util.Calendar
@@ -78,6 +83,8 @@ class MainActivity : AppCompatActivity() {
         })
 
         btnRegister.setOnClickListener {
+            showConfirmationDialog()
+
             var validationObject = ValidationClass()
             val (go1, error1) = validationObject.ValidateUsername(edtUsername.text.toString())
             val ErrUsername = "$error1"
@@ -123,5 +130,20 @@ class MainActivity : AppCompatActivity() {
         val accesses = resources.getStringArray(R.array.Accesses)
         val adapter = ArrayAdapter(this, R.layout.activity_spinner, R.id.txtSpinner, accesses)
         spinnerAccess.adapter = adapter
+    }
+
+    private fun showConfirmationDialog() {
+        var dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.activity_dialog)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        var txtDialog: TextView = dialog.findViewById(R.id.txtDialog)
+        var btnExit: ImageButton = dialog.findViewById(R.id.btnExit)
+        txtDialog.setText("This is a dialog")
+        btnExit.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
     }
 }
