@@ -1,6 +1,7 @@
 package com.example.ics26011_activity_100323_oop
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,15 +19,19 @@ class FragmentClass : DialogFragment(){
         var rootView : View = inflater.inflate(R.layout.activity_fragment, container, false)
 
         var bundle_argument = arguments
-        var firstNewVariable = bundle_argument!!.getString("firstName")
-        var secondNewVariable = bundle_argument!!.getString("lastName")
+        //var firstNewVariable = bundle_argument!!.getString("firstName")
+        //var secondNewVariable = bundle_argument!!.getString("lastName")
+        var userData = bundle_argument!!.getStringArrayList("userData")
+        Log.i("info", userData.toString())
+
 
         var btnExit : ImageButton = rootView.findViewById(R.id.btnExit)
         var txtFirstVal : TextView = rootView.findViewById(R.id.txtFirstVal)
         var txtSecondVal : TextView = rootView.findViewById(R.id.txtSecondVal)
 
-        txtFirstVal.text = firstNewVariable
-        txtSecondVal.text = secondNewVariable
+        txtFirstVal.text = userData?.get(2).toString()
+        txtSecondVal.text = userData?.get(3).toString()
+        //txtSecondVal.text = secondNewVariable
 
         btnExit.setOnClickListener {
             dismiss()

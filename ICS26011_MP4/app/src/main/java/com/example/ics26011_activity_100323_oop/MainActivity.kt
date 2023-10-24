@@ -123,9 +123,22 @@ class MainActivity : AppCompatActivity() {
             //Dialog
             var fragmentObject = FragmentClass()
             fragmentObject.setCancelable(false)
+
             var bundle = Bundle()
-            bundle.putString("firstName", edtFirstName.text.toString())
-            bundle.putString("lastName", edtLastName.text.toString())
+            //bundle.putString("firstName", edtFirstName.text.toString())
+            //bundle.putString("lastName", edtLastName.text.toString())
+
+            var userData = ArrayList<String>()
+            userData.add(edtUsername.text.toString())
+            userData.add(edtPassword.text.toString())
+            userData.add(edtFirstName.text.toString())
+            userData.add(edtLastName.text.toString())
+            userData.add(edtEmail.text.toString())
+            userData.add(edtMobile.text.toString())
+            userData.add(edtBirthday.text.toString())
+            userData.add(spinnerAccess.getSelectedItem().toString())
+            bundle.putStringArrayList("userData", userData)
+
             fragmentObject.arguments = bundle
             fragmentObject.show(supportFragmentManager, "Custom Fragment")
             validationObject.ValidateBirthday(edtBirthday.text.toString()) //.ValidateAge()
