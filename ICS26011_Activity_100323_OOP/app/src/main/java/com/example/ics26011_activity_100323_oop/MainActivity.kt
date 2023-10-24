@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         btnRegister.setOnClickListener {
-            showConfirmationDialog()
+            //showConfirmationDialog()
 
             var validationObject = ValidationClass()
             val (go1, error1) = validationObject.ValidateUsername(edtUsername.text.toString())
@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
             val ErrMobile = "$error6"
             val (go7, error7) = validationObject.ValidateBirthday(edtBirthday.text.toString())
             val ErrBirthday = "$error7"
-            //MALI EMAIL, MALI USERNAME, WLA LAST NAME
+            //Testing
             Log.i("info_get1.2","$go1")
             Log.i("info_get1.3","$error1")
             Log.i("info_get1.3",ErrUsername)
@@ -120,6 +120,15 @@ class MainActivity : AppCompatActivity() {
                     edtBirthday.text.toString(), spinnerAccess.getSelectedItem().toString())
                 registerObject.AddToArray(userData)
             }
+            //Dialog
+            var fragmentObject = FragmentClass()
+            fragmentObject.setCancelable(false)
+            var bundle = Bundle()
+            bundle.putString("firstName", edtFirstName.text.toString())
+            bundle.putString("lastName", edtLastName.text.toString())
+            fragmentObject.arguments = bundle
+            fragmentObject.show(supportFragmentManager, "Custom Fragment")
+            validationObject.ValidateBirthday(edtBirthday.text.toString()) //.ValidateAge()
         }
 
         btnMainMenu.setOnClickListener {
@@ -135,12 +144,14 @@ class MainActivity : AppCompatActivity() {
     private fun showConfirmationDialog() {
         var dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(false)
+        dialog.setCancelable(false) //can't close dialog by clicking outside the dialog bounds
         dialog.setContentView(R.layout.activity_dialog)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
         var txtDialog: TextView = dialog.findViewById(R.id.txtDialog)
         var btnExit: ImageButton = dialog.findViewById(R.id.btnExit)
         txtDialog.setText("This is a dialog")
+
         btnExit.setOnClickListener {
             dialog.dismiss()
         }

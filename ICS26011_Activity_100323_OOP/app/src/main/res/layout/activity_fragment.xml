@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="270dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtFirstVal"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:text="FirstName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtSecondVal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:id="@+id/txtSecondVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LastName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnExit"
+        app:layout_constraintStart_toEndOf="@+id/txtFirstVal"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="20dp"/>
+
+    <ImageButton
+        android:id="@+id/btnExit"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+
+        android:contentDescription="Close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtSecondVal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/btn_dialog" />
+</androidx.constraintlayout.widget.ConstraintLayout>
