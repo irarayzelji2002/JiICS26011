@@ -1,5 +1,6 @@
 package com.example.ics26011_activity_100323_oop
 
+import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
 import java.time.LocalDate
@@ -65,7 +66,7 @@ class ValidationClass {
                 if (ErrCount > 0) { //contains at least 1 error
                     ErrMsg =
                         "Password must have " + ErrMinMax + ErrSpecialCharacter + ErrUppercase + ErrLowercase + ErrNumber
-                    ErrMsg = ErrMsg.substring(0, ErrMsg.length - 2) + "."
+                    ErrMsg = ErrMsg.substring(0, ErrMsg.length - 2) + "." //remove comma and space, adding dot
                     ErrSpecialCharacter = ""
                     ErrUppercase = ""
                     ErrLowercase = ""
@@ -118,8 +119,10 @@ class ValidationClass {
         try{
             if (email.isNullOrEmpty()) {
                 ErrMsg = "Email field is required."
-            } else {
+            } else if(android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {  //is a valid email
                 go == true
+            } else {
+                ErrMsg = "Not a valid email address."
             }
         } catch (e : Exception) {
             Log.e("error_email", e.message.toString())
@@ -133,12 +136,8 @@ class ValidationClass {
         try {
             if (mobile.isNullOrEmpty()) {
                 ErrMsg = "Mobile number field is required."
-            } else {
-                if (mobile.length != 11) {
-                    ErrMsg = "Mobile number must be 11 digits."
-                } else {
-                    go == true
-                }
+            } else { //no more validation except empty because have text change listener in MainActivity
+                go == true
             }
         } catch (e : Exception) {
             Log.e("error_mobile", e.message.toString())

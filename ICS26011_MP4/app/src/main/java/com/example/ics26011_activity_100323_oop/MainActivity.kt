@@ -113,35 +113,31 @@ class MainActivity : AppCompatActivity() {
                 txtMobileErr.text=ErrMobile
                 txtBirthdayErr.text=ErrBirthday
             } else {
-                var userData = UserInfo(
-                    edtUsername.text.toString(), edtPassword.text.toString(),
-                    edtFirstName.text.toString(), edtLastName.text.toString(),
-                    edtEmail.text.toString(), edtMobile.text.toString(),
-                    edtBirthday.text.toString(), spinnerAccess.getSelectedItem().toString())
-                registerObject.AddToArray(userData)
+                //insert data to database
+
             }
             //Dialog
             var fragmentObject = FragmentClass()
             fragmentObject.setCancelable(false)
 
             var bundle = Bundle()
-            //bundle.putString("firstName", edtFirstName.text.toString())
-            //bundle.putString("lastName", edtLastName.text.toString())
 
             var userData = ArrayList<String>()
-            userData.add(edtUsername.text.toString())
-            userData.add(edtPassword.text.toString())
-            userData.add(edtFirstName.text.toString())
-            userData.add(edtLastName.text.toString())
-            userData.add(edtEmail.text.toString())
-            userData.add(edtMobile.text.toString())
-            userData.add(edtBirthday.text.toString())
-            userData.add(spinnerAccess.getSelectedItem().toString())
+            userData.add(edtUsername.text.toString())                //0
+            userData.add(edtPassword.text.toString())                //1
+            userData.add(edtFirstName.text.toString())               //2
+            userData.add(edtLastName.text.toString())                //3
+            userData.add(edtEmail.text.toString())                   //4
+            userData.add(edtMobile.text.toString())                  //5
+            userData.add(edtBirthday.text.toString())                //6
+            userData.add(spinnerAccess.getSelectedItem().toString()) //7
+
             bundle.putStringArrayList("userData", userData)
+            //bundle.putString("firstName", edtFirstName.text.toString())
 
             fragmentObject.arguments = bundle
             fragmentObject.show(supportFragmentManager, "Custom Fragment")
-            validationObject.ValidateBirthday(edtBirthday.text.toString()) //.ValidateAge()
+            //validationObject.ValidateBirthday(edtBirthday.text.toString()) //.ValidateAge()
         }
 
         btnMainMenu.setOnClickListener {
