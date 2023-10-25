@@ -101,10 +101,14 @@ class MainActivity : AppCompatActivity() {
             val (go7, error7) = validationObject.ValidateBirthday(edtBirthday.text.toString())
             val ErrBirthday = "$error7"
             //Testing
-            Log.i("info_get1.2","$go1")
-            Log.i("info_get1.3","$error1")
+            Log.i("info_get1.1","$go1")
+            Log.i("info_get1.2","$error1")
             Log.i("info_get1.3",ErrUsername)
-            if("$go1"=="false" && "$go2"=="false" && "$go3"=="false" && "$go4"=="false" && "$go5"=="false" && "$go6"=="false" && "$go7"=="false") {
+            Log.i("infobeforeifelse","$go1, $go2, $go3, $go4, $go5, $go6, $go7")
+            Log.i("infobeforeifelse",
+                ("$go1"=="false" || "$go2"=="false" || "$go3"=="false" || "$go4"=="false" || "$go5"=="false" || "$go6"=="false" || "$go7"=="false").toString()
+            )
+            if("$go1"=="false" || "$go2"=="false" || "$go3"=="false" || "$go4"=="false" || "$go5"=="false" || "$go6"=="false" || "$go7"=="false") {
                 txtUsernameErr.text = ErrUsername
                 txtPasswordErr.text=ErrPassword
                 txtFirstNameErr.text=ErrFirstName
@@ -112,32 +116,33 @@ class MainActivity : AppCompatActivity() {
                 txtEmailErr.text=ErrEmail
                 txtMobileErr.text=ErrMobile
                 txtBirthdayErr.text=ErrBirthday
+                Log.i("info", "inside if")
             } else {
-                //insert data to database
+                Log.i("info", "inside else")
+                //Confirmation Dialog
+                var fragmentObject = FragmentClass()
+                fragmentObject.setCancelable(false)
 
+                var bundle = Bundle()
+
+                var userData = ArrayList<String>()
+                userData.add(edtUsername.text.toString())                //0
+                userData.add(edtPassword.text.toString())                //1
+                userData.add(edtFirstName.text.toString())               //2
+                userData.add(edtLastName.text.toString())                //3
+                userData.add(edtEmail.text.toString())                   //4
+                userData.add(edtMobile.text.toString())                  //5
+                userData.add(edtBirthday.text.toString())                //6
+                userData.add(spinnerAccess.getSelectedItem().toString()) //7
+
+                bundle.putStringArrayList("userData", userData)
+                //bundle.putString("firstName", edtFirstName.text.toString())
+
+                fragmentObject.arguments = bundle
+                fragmentObject.show(supportFragmentManager, "Custom Fragment")
+                Log.i("userData", userData.toString())
+                //validationObject.ValidateBirthday(edtBirthday.text.toString()) //.ValidateAge()
             }
-            //Dialog
-            var fragmentObject = FragmentClass()
-            fragmentObject.setCancelable(false)
-
-            var bundle = Bundle()
-
-            var userData = ArrayList<String>()
-            userData.add(edtUsername.text.toString())                //0
-            userData.add(edtPassword.text.toString())                //1
-            userData.add(edtFirstName.text.toString())               //2
-            userData.add(edtLastName.text.toString())                //3
-            userData.add(edtEmail.text.toString())                   //4
-            userData.add(edtMobile.text.toString())                  //5
-            userData.add(edtBirthday.text.toString())                //6
-            userData.add(spinnerAccess.getSelectedItem().toString()) //7
-
-            bundle.putStringArrayList("userData", userData)
-            //bundle.putString("firstName", edtFirstName.text.toString())
-
-            fragmentObject.arguments = bundle
-            fragmentObject.show(supportFragmentManager, "Custom Fragment")
-            //validationObject.ValidateBirthday(edtBirthday.text.toString()) //.ValidateAge()
         }
 
         btnMainMenu.setOnClickListener {

@@ -19,7 +19,7 @@ class ValidationClass {
             } else if(findUsername == true) {
                 ErrMsg = "Username exists already."
             } else {
-                go == true
+                return Pair(true, ErrMsg)
             }
         } catch (e : Exception) {
             Log.e("error_username", e.message.toString())
@@ -74,7 +74,7 @@ class ValidationClass {
                     ErrMinMax = ""
                     ErrCount = 0
                 } else {
-                    go == true
+                    return Pair(true, ErrMsg)
                 }
             }
         } catch (e : Exception) {
@@ -90,7 +90,7 @@ class ValidationClass {
             if (firstname.isNullOrEmpty()) {
                 ErrMsg = "First name field is required."
             } else {
-                go == true
+                return Pair(true, ErrMsg)
             }
         } catch (e : Exception) {
             Log.e("error_firstname", e.message.toString())
@@ -105,7 +105,7 @@ class ValidationClass {
             if (lastname.isNullOrEmpty()) {
                 ErrMsg = "Last name field is required."
             } else {
-                go == true
+                return Pair(true, ErrMsg)
             }
         } catch (e : Exception) {
             Log.e("error_lastname", e.message.toString())
@@ -120,7 +120,7 @@ class ValidationClass {
             if (email.isNullOrEmpty()) {
                 ErrMsg = "Email field is required."
             } else if(android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {  //is a valid email
-                go == true
+                return Pair(true, ErrMsg)
             } else {
                 ErrMsg = "Not a valid email address."
             }
@@ -136,8 +136,12 @@ class ValidationClass {
         try {
             if (mobile.isNullOrEmpty()) {
                 ErrMsg = "Mobile number field is required."
-            } else { //no more validation except empty because have text change listener in MainActivity
-                go == true
+            } else {
+                if (mobile.length != 11) {
+                    ErrMsg = "Mobile number must be 11 digits."
+                } else {
+                    return Pair(true, ErrMsg)
+                }
             }
         } catch (e : Exception) {
             Log.e("error_mobile", e.message.toString())
@@ -149,21 +153,23 @@ class ValidationClass {
         var ErrMsg = ""
         var go : Boolean = false
         try {
+            Log.i("info_birthday", birthday)
+            Log.i("info_day", LocalDate.now().toString())
             val bday = birthday.split("/").toTypedArray()
-            var age = Period.between(
+            var age = 0
+            if (birthday.isNullOrEmpty()) {
+                ErrMsg = "Birthday field is required."
+            } else {
+                age = Period.between(
                     LocalDate.of(bday[2].toInt(), bday[1].toInt(), bday[0].toInt()),
                     LocalDate.now()
                 ).years
-            if (birthday.isNullOrEmpty()) {
-                ErrMsg = "Birthday field is required."
-            } else if (age<18){
-                ErrMsg = "You are not 18 years old and above."
+                if (age<18){
+                    ErrMsg = "You are not 18 years old and above."
+                } else {
+                    return Pair(true, ErrMsg)
+                }
             }
-            else {
-                go == true
-            }
-            Log.i("info_birthday", birthday)
-            Log.i("info_day", LocalDate.now().toString())
         } catch (e : Exception) {
             Log.e("error_birthday", e.message.toString())
         }
