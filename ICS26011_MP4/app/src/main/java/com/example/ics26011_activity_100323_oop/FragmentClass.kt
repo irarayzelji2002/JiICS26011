@@ -1,5 +1,6 @@
 package com.example.ics26011_activity_100323_oop
 
+import android.content.Intent
 import android.media.Image
 import android.os.Bundle
 import android.util.Log
@@ -12,9 +13,11 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.constraintlayout.utils.widget.ImageFilterView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.DialogFragment
 
 class FragmentClass : DialogFragment(){
@@ -72,11 +75,13 @@ class FragmentClass : DialogFragment(){
                 userData?.get(4).toString(), userData?.get(5).toString(),
                 userData?.get(6).toString(), userData?.get(7).toString())
             registerObject.AddToArray(userData)
+            Toast.makeText(rootView.getContext(), "Account created, please log in.", Toast.LENGTH_SHORT)
             Log.i("userdata", userData.toString())
             Log.i("object", registerObject.toString())
             constraintLayoutShadow.setAnimation(fade_out)
+            dismiss()
+            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, LoginFragment()).commit()
         }
-
         return rootView
     }
 
