@@ -1,7 +1,5 @@
 package com.example.ics26011_activity_100323_oop
 
-import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,13 +9,9 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.view.ContextThemeWrapper
-import androidx.constraintlayout.utils.widget.ImageFilterView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.GravityCompat
 import androidx.fragment.app.DialogFragment
 
 class FragmentClass : DialogFragment(){

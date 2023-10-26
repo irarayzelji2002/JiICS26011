@@ -1,8 +1,6 @@
 package com.example.ics26011_activity_100323_oop
 
-import android.text.TextUtils
 import android.util.Log
-import android.widget.Toast
 import java.time.LocalDate
 import java.time.Period
 import java.util.regex.Pattern
