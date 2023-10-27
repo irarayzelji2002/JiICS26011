@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@id/toolbar">
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragment_container"
-                android:name="com.example.ics26011_activity_100323_oop.MainMenuFragment"
+                android:name="com.example.ics26011_mp4.MainMenuFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout="@layout/fragment_main_menu" />

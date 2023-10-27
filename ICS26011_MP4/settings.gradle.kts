@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ICS26011_Activity_100323_OOP"
+rootProject.name = "ICS26011_MP4"
 include(":app")
  

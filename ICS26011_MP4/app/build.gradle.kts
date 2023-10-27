@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ics26011_activity_100323_oop"
+    namespace = "com.example.ics26011_mp4"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.ics26011_activity_100323_oop"
+        applicationId = "com.example.ics26011_mp4"
         minSdk = 27
         targetSdk = 33
         versionCode = 1
