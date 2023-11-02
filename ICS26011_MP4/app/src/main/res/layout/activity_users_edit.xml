@@ -92,6 +92,39 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/txtUsername"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="USERNAME" />
+
+                            <TextView
+                                android:id="@+id/txtUsernameErr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_weight="1"
+                                android:justificationMode="inter_word"
+                                android:text=""
+                                android:textColor="@color/red"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/edtUsername"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:ems="10"
+                            android:hint="Username"
+                            android:inputType="text" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
                                 android:id="@+id/txtFirstName"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -285,42 +318,42 @@
                     android:orientation="horizontal"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="20dp">
-
                     <Button
                         android:id="@+id/btnChangePassword"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0"
                         android:text="Change Password"
                         android:textColor="@color/darkgrey"
                         android:padding="0dp"
+                        android:layout_weight="0"
                         app:backgroundTint="@android:color/white"
                         app:strokeColor="@color/darkgrey"
                         app:strokeWidth="2dp"
                         android:layout_marginRight="10dp"/>
                     <Button
                         android:id="@+id/btnCancel"
-                        android:layout_width="wrap_content"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Cancel"
                         android:textColor="@color/darkgrey"
                         android:padding="0dp"
+                        android:layout_weight="1"
                         app:backgroundTint="@android:color/white"
                         app:strokeColor="@color/darkgrey"
                         app:strokeWidth="2dp"
                         android:layout_marginRight="10dp"/>
-                    <Button
+                    <ImageButton
                         android:id="@+id/btnReset"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Reset"
-                        android:textColor="@color/darkgrey"
-                        android:padding="0dp"
-                        app:backgroundTint="@android:color/white"
-                        app:strokeColor="@color/darkgrey"
-                        app:strokeWidth="2dp" />
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="0"
+                        android:src="@drawable/baseline_replay_24"
+                        android:background="@android:color/transparent"
+                        app:tint="@color/darkgrey"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:padding="9dp"
+                        android:contentDescription="Reset"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

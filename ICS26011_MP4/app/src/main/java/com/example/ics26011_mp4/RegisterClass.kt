@@ -80,6 +80,8 @@ class RegisterClass {
                     info = user.firstname
                 else if(detail=="lastname")
                     info = user.lastname
+                else if(detail=="username")
+                    info = user.username
                 else if(detail=="email")
                     info = user.email
                 else if(detail=="mobilenumber")
@@ -112,6 +114,14 @@ class RegisterClass {
                     var updatedUser = UserInfo(user.username,user.password,user.firstname,update,user.email,user.mobilenumber,user.birthday,user.access)
                     userArray.set(index,updatedUser)
                 }
+                else if(detail=="username") {
+                    var updatedUser = UserInfo(update,user.password,user.firstname,user.lastname,user.email,user.mobilenumber,user.birthday,user.access)
+                    userArray.set(index,updatedUser)
+                }
+                else if(detail=="password") {
+                    var updatedUser = UserInfo(user.username,update,user.firstname,user.lastname,user.email,user.mobilenumber,user.birthday,user.access)
+                    userArray.set(index,updatedUser)
+                }
                 else if(detail=="email") {
                     var updatedUser = UserInfo(user.username,user.password,user.firstname,user.lastname,update,user.mobilenumber,user.birthday,user.access)
                     userArray.set(index,updatedUser)
@@ -126,10 +136,6 @@ class RegisterClass {
                 }
                 else if(detail=="access") {
                     var updatedUser = UserInfo(user.username,user.password,user.firstname,user.lastname,user.email,user.mobilenumber,user.birthday,update)
-                    userArray.set(index,updatedUser)
-                }
-                else if(detail=="password") {
-                    var updatedUser = UserInfo(user.username,update,user.firstname,user.lastname,user.email,user.mobilenumber,user.birthday,user.access)
                     userArray.set(index,updatedUser)
                 }
             }

@@ -33,6 +33,7 @@ class UsersEdit : DialogFragment(){
 
         var bundle_argument = arguments
         var username = bundle_argument!!.getString("user")
+        var currentUser = username.toString()
 
         var constraintLayoutShadow : ConstraintLayout = rootView.findViewById(R.id.constraintLayoutShadow)
         var fade_in : Animation = AnimationUtils.loadAnimation(rootView.context,R.anim.fade_in)
@@ -44,13 +45,14 @@ class UsersEdit : DialogFragment(){
 
         //Declaration of Buttons
         var btnUpdate : Button = rootView.findViewById(R.id.btnUpdate)
-        var btnChangePass : Button = rootView.findViewById(R.id.btnChangePassword)
         var btnCancel : Button = rootView.findViewById(R.id.btnCancel)
-        var btnReset : Button = rootView.findViewById(R.id.btnReset)
+        var btnChangePass : Button = rootView.findViewById(R.id.btnChangePassword)
+        var btnReset : ImageButton = rootView.findViewById(R.id.btnReset)
         var btnExit : ImageButton = rootView.findViewById(R.id.btnExit)
         //Declaration of EditText
         var edtFirstName : EditText = rootView.findViewById(R.id.edtFirstName)
         var edtLastName : EditText = rootView.findViewById(R.id.edtLastName)
+        var edtUsername : EditText = rootView.findViewById(R.id.edtUsername)
         var edtEmail : EditText = rootView.findViewById(R.id.edtEmail)
         var edtMobile : EditText = rootView.findViewById(R.id.edtMobileNumber)
         var edtBirthday : EditText = rootView.findViewById(R.id.edtBirthday)
@@ -60,6 +62,7 @@ class UsersEdit : DialogFragment(){
         var txtTitle : TextView = rootView.findViewById(R.id.txtTitle)
         var txtFirstNameErr : TextView = rootView.findViewById(R.id.txtFirstNameErr)
         var txtLastNameErr : TextView = rootView.findViewById(R.id.txtLastNameErr)
+        var txtUsernameErr : TextView = rootView.findViewById(R.id.txtUsernameErr)
         var txtEmailErr : TextView = rootView.findViewById(R.id.txtEmailErr)
         var txtMobileErr : TextView = rootView.findViewById(R.id.txtMobileNumberErr)
         var txtBirthdayErr : TextView = rootView.findViewById(R.id.txtBitrthdayErr)
@@ -74,6 +77,7 @@ class UsersEdit : DialogFragment(){
         //EditText filled user info
         edtFirstName.setText(username?.let { registerObject.getUserData(it, "firstname") })
         edtLastName.setText(username?.let { registerObject.getUserData(it, "lastname") })
+        edtUsername.setText(username?.let { registerObject.getUserData(it, "username") })
         edtEmail.setText(username?.let { registerObject.getUserData(it, "email") })
         edtMobile.setText(username?.let { registerObject.getUserData(it, "mobilenumber") })
         edtBirthday.setText(username?.let { registerObject.getUserData(it, "birthday") })
@@ -115,17 +119,20 @@ class UsersEdit : DialogFragment(){
 
         btnUpdate.setOnClickListener {
             var validationObject = ValidationClass()
-            val (go3, error3) = validationObject.ValidateFirstName(edtFirstName.text.toString())
-            val ErrFirstName = "$error3"
-            val (go4, error4) = validationObject.ValidateLastName(edtLastName.text.toString())
-            val ErrLastName = "$error4"
-            val (go5, error5) = validationObject.ValidateEmail(edtEmail.text.toString())
-            val ErrEmail = "$error5"
-            val (go6, error6) = validationObject.ValidateMobile(edtMobile.text.toString())
-            val ErrMobile = "$error6"
-            val (go7, error7) = validationObject.ValidateBirthday(edtBirthday.text.toString())
-            val ErrBirthday = "$error7"
-            if("$go3"=="false" || "$go4"=="false" || "$go5"=="false" || "$go6"=="false" || "$go7"=="false") {
+            val (go1, error1) = validationObject.ValidateChangeUsername(currentUser, edtUsername.text.toString())
+            val ErrUsername = "$error1"
+            val (go2, error2) = validationObject.ValidateFirstName(edtFirstName.text.toString())
+            val ErrFirstName = "$error2"
+            val (go3, error3) = validationObject.ValidateLastName(edtLastName.text.toString())
+            val ErrLastName = "$error3"
+            val (go4, error4) = validationObject.ValidateEmail(edtEmail.text.toString())
+            val ErrEmail = "$error4"
+            val (go5, error5) = validationObject.ValidateMobile(edtMobile.text.toString())
+            val ErrMobile = "$error5"
+            val (go6, error6) = validationObject.ValidateBirthday(edtBirthday.text.toString())
+            val ErrBirthday = "$error6"
+            if("$go1"=="false" || "$go2"=="false" || "$go3"=="false" || "$go4"=="false" || "$go5"=="false" || "$go6"=="false") {
+                txtUsernameErr.text=ErrUsername
                 txtFirstNameErr.text=ErrFirstName
                 txtLastNameErr.text=ErrLastName
                 txtEmailErr.text=ErrEmail
@@ -141,13 +148,14 @@ class UsersEdit : DialogFragment(){
                 var userData = ArrayList<String>()
                 userData.add(edtFirstName.text.toString())               //0
                 userData.add(edtLastName.text.toString())                //1
-                userData.add(edtEmail.text.toString())                   //2
-                userData.add(edtMobile.text.toString())                  //3
-                userData.add(edtBirthday.text.toString())                //4
-                userData.add(spinnerAccess.getSelectedItem().toString()) //5
+                userData.add(edtUsername.text.toString())                //2
+                userData.add(edtEmail.text.toString())                   //3
+                userData.add(edtMobile.text.toString())                  //4
+                userData.add(edtBirthday.text.toString())                //5
+                userData.add(spinnerAccess.getSelectedItem().toString()) //6
                 if (username != null) {
                     userData.add(username)
-                } //6
+                } //7
 
                 bundle.putStringArrayList("userData", userData)
 
@@ -174,6 +182,7 @@ class UsersEdit : DialogFragment(){
             edtFirstName.setText(username?.let { registerObject.getUserData(it, "firstname") })
             edtLastName.setText(username?.let { registerObject.getUserData(it, "lastname") })
             edtEmail.setText(username?.let { registerObject.getUserData(it, "email") })
+            edtUsername.setText(username?.let { registerObject.getUserData(it, "username") })
             edtMobile.setText(username?.let { registerObject.getUserData(it, "mobilenumber") })
             edtBirthday.setText(username?.let { registerObject.getUserData(it, "birthday") })
             spinnerAccess.setSelection(accesses.indexOf(username?.let { registerObject.getUserData(it, "access") }))

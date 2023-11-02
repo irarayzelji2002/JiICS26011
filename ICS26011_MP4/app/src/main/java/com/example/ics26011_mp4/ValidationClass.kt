@@ -24,6 +24,24 @@ class ValidationClass {
         }
         return Pair(go, ErrMsg)
     }
+    fun ValidateChangeUsername(currentUser: String, username : String): Pair<Boolean,String> {
+        var ErrMsg = ""
+        var go : Boolean = false
+        try {
+            var registerObject = RegisterClass()
+            var findUsername = registerObject.ReturnArray().stream().anyMatch {x -> x.username.equals(username)}
+            if (username.isNullOrEmpty()) {
+                ErrMsg = "Username field is required."
+            } else if(findUsername == true && currentUser!=username) {
+                ErrMsg = "Username exists already."
+            } else {
+                return Pair(true, ErrMsg)
+            }
+        } catch (e : Exception) {
+            Log.e("error_username", e.message.toString())
+        }
+        return Pair(go, ErrMsg)
+    }
 
     fun ValidatePassword(password : String): Pair<Boolean,String> {
         var ErrMsg: String = ""

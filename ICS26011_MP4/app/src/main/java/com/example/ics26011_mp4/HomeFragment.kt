@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import com.google.android.material.navigation.NavigationView
 import java.util.Optional
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -22,6 +23,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_home, container, false)
+        val nav_view : NavigationView = requireActivity().findViewById(R.id.nav_view)
 
         var btnLogout : Button = rootView.findViewById(R.id.btnLogout)
 
@@ -38,16 +40,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         txtGreeting.text = getString(R.string.greeting, username)
         txtUsername.text = username
 
-        //if(User!!.isPresent()) {
-            //var userData = User.get()
-            var registerObject = RegisterClass()
-            txtFirstName.text = username?.let { registerObject.getUserData(it,"firstname") }
-            txtLastName.text = username?.let { registerObject.getUserData(it,"lastname") }
-            txtEmail.text = username?.let { registerObject.getUserData(it,"email") }
-            txtMobile.text = username?.let { registerObject.getUserData(it,"mobilenumber") }
-            txtBirthday.text = username?.let { registerObject.getUserData(it,"birthday") }
-            txtAccess.text = username?.let { registerObject.getUserData(it,"access") }
-        //}
+        var registerObject = RegisterClass()
+        txtFirstName.text = username?.let { registerObject.getUserData(it,"firstname") }
+        txtLastName.text = username?.let { registerObject.getUserData(it,"lastname") }
+        txtEmail.text = username?.let { registerObject.getUserData(it,"email") }
+        txtMobile.text = username?.let { registerObject.getUserData(it,"mobilenumber") }
+        txtBirthday.text = username?.let { registerObject.getUserData(it,"birthday") }
+        txtAccess.text = username?.let { registerObject.getUserData(it,"access") }
 
         btnLogout.setOnClickListener {
             var fragmentObject = LogoutConfirm()
