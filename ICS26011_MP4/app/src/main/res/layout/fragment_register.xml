@@ -234,7 +234,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:ems="10"
-                        android:hint="xxxx xxx xxxx"
+                        android:hint="xxxxxxxxxxx"
                         android:inputType="phone" />
 
                     <LinearLayout
@@ -296,7 +296,8 @@
                             android:layout_marginRight="20dp"
                             android:layout_weight="1"
                             android:backgroundTint="@color/orange"
-                            android:text="Register" />
+                            android:text="Register"
+                            android:textColor="@color/white"/>
 
                         <Button
                             android:id="@+id/btnMainMenu"

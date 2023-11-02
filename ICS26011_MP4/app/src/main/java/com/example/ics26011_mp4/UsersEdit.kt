@@ -1,6 +1,8 @@
 package com.example.ics26011_mp4
 
 import android.app.DatePickerDialog
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,50 +10,74 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
-import androidx.fragment.app.Fragment
-import com.google.android.material.navigation.NavigationView
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.DialogFragment
 import java.util.Calendar
 
-class RegisterFragment : Fragment(R.layout.fragment_register) {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+class UsersEdit : DialogFragment(){
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_register, container, false)
-        val nav_view : NavigationView = requireActivity().findViewById(R.id.nav_view)
+        val rootView = inflater.inflate(R.layout.activity_users_edit, container, false)
+        val confirmView = inflater.inflate(R.layout.activity_users_edit_confirm, container, false)
+
+        var bundle_argument = arguments
+        var username = bundle_argument!!.getString("user")
+
+        var constraintLayoutShadow : ConstraintLayout = rootView.findViewById(R.id.constraintLayoutShadow)
+        var fade_in : Animation = AnimationUtils.loadAnimation(rootView.context,R.anim.fade_in)
+        var fade_out : Animation = AnimationUtils.loadAnimation(rootView.context,R.anim.fade_out)
+        constraintLayoutShadow.setAnimation(fade_in)
 
         //Declaration of object
         var registerObject = RegisterClass()
 
         //Declaration of Buttons
-        var btnRegister : Button = rootView.findViewById(R.id.btnRegister)
-        var btnMainMenu : Button = rootView.findViewById(R.id.btnMainMenu)
+        var btnUpdate : Button = rootView.findViewById(R.id.btnUpdate)
+        var btnCancel : Button = rootView.findViewById(R.id.btnCancel)
+        var btnExit : ImageButton = rootView.findViewById(R.id.btnExit)
+        var btnContinue : Button = confirmView.findViewById(R.id.btnContinue)
         //Declaration of EditText
         var edtFirstName : EditText = rootView.findViewById(R.id.edtFirstName)
         var edtLastName : EditText = rootView.findViewById(R.id.edtLastName)
-        var edtUsername : EditText = rootView.findViewById(R.id.edtUsername)
-        var edtPassword : EditText = rootView.findViewById(R.id.edtPassword)
         var edtEmail : EditText = rootView.findViewById(R.id.edtEmail)
         var edtMobile : EditText = rootView.findViewById(R.id.edtMobileNumber)
         var edtBirthday : EditText = rootView.findViewById(R.id.edtBirthday)
         //Declaration of Spinner
         var spinnerAccess : Spinner = rootView.findViewById(R.id.spnAccess)
         //Declaration of TextViews
-        var txtUsernameErr : TextView = rootView.findViewById(R.id.txtUsernameErr)
-        var txtPasswordErr : TextView = rootView.findViewById(R.id.txtPasswordErr)
+        var txtTitle : TextView = rootView.findViewById(R.id.txtTitle)
         var txtFirstNameErr : TextView = rootView.findViewById(R.id.txtFirstNameErr)
         var txtLastNameErr : TextView = rootView.findViewById(R.id.txtLastNameErr)
         var txtEmailErr : TextView = rootView.findViewById(R.id.txtEmailErr)
         var txtMobileErr : TextView = rootView.findViewById(R.id.txtMobileNumberErr)
         var txtBirthdayErr : TextView = rootView.findViewById(R.id.txtBitrthdayErr)
+
+        //Populating the spinner
+        val accesses = resources.getStringArray(R.array.Accesses)
+        val adapter = ArrayAdapter(rootView.getContext(), R.layout.activity_spinner, R.id.txtSpinner, accesses)
+        spinnerAccess.adapter = adapter
+
+        txtTitle.text = getString(R.string.editUserTitle, username)
+
+        //EditText filled user info
+        edtFirstName.setText(username?.let { registerObject.getUserData(it, "firstname") })
+        edtLastName.setText(username?.let { registerObject.getUserData(it, "lastname") })
+        edtEmail.setText(username?.let { registerObject.getUserData(it, "email") })
+        edtMobile.setText(username?.let { registerObject.getUserData(it, "mobilenumber") })
+        edtBirthday.setText(username?.let { registerObject.getUserData(it, "birthday") })
+        spinnerAccess.setSelection(accesses.indexOf(username?.let { registerObject.getUserData(it, "access") }))
 
         //Setting of onclick listeners
         edtBirthday.setOnClickListener {
@@ -87,14 +113,20 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             override fun afterTextChanged(p0: Editable?) {}
         })
 
-        btnRegister.setOnClickListener {
-            //showConfirmationDialog()
-
+        btnCancel.setOnClickListener {
+            constraintLayoutShadow.setAnimation(fade_out)
+            dismiss()
+        }
+        btnExit.setOnClickListener {
+            constraintLayoutShadow.setAnimation(fade_out)
+            dismiss()
+        }
+        btnContinue.setOnClickListener {
+            constraintLayoutShadow.setAnimation(fade_out)
+            dismiss()
+        }
+        btnUpdate.setOnClickListener {
             var validationObject = ValidationClass()
-            val (go1, error1) = validationObject.ValidateUsername(edtUsername.text.toString())
-            val ErrUsername = "$error1"
-            val (go2, error2) = validationObject.ValidatePassword(edtPassword.text.toString())
-            val ErrPassword = "$error2"
             val (go3, error3) = validationObject.ValidateFirstName(edtFirstName.text.toString())
             val ErrFirstName = "$error3"
             val (go4, error4) = validationObject.ValidateLastName(edtLastName.text.toString())
@@ -105,40 +137,29 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             val ErrMobile = "$error6"
             val (go7, error7) = validationObject.ValidateBirthday(edtBirthday.text.toString())
             val ErrBirthday = "$error7"
-            //Testing
-            Log.i("info_get1.1","$go1")
-            Log.i("info_get1.2","$error1")
-            Log.i("info_get1.3",ErrUsername)
-            Log.i("infobeforeifelse","$go1, $go2, $go3, $go4, $go5, $go6, $go7")
-            Log.i("infobeforeifelse",
-                ("$go1"=="false" || "$go2"=="false" || "$go3"=="false" || "$go4"=="false" || "$go5"=="false" || "$go6"=="false" || "$go7"=="false").toString()
-            )
-            if("$go1"=="false" || "$go2"=="false" || "$go3"=="false" || "$go4"=="false" || "$go5"=="false" || "$go6"=="false" || "$go7"=="false") {
-                txtUsernameErr.text = ErrUsername
-                txtPasswordErr.text=ErrPassword
+            if("$go3"=="false" || "$go4"=="false" || "$go5"=="false" || "$go6"=="false" || "$go7"=="false") {
                 txtFirstNameErr.text=ErrFirstName
                 txtLastNameErr.text=ErrLastName
                 txtEmailErr.text=ErrEmail
                 txtMobileErr.text=ErrMobile
                 txtBirthdayErr.text=ErrBirthday
-                Log.i("info", "inside if")
             } else {
-                Log.i("info", "inside else")
                 //Confirmation Dialog
-                var fragmentObject = RegisterConfirmFragment()
+                var fragmentObject = UsersEditConfirm()
                 fragmentObject.setCancelable(false)
 
                 var bundle = Bundle()
 
                 var userData = ArrayList<String>()
-                userData.add(edtUsername.text.toString())                //0
-                userData.add(edtPassword.text.toString())                //1
-                userData.add(edtFirstName.text.toString())               //2
-                userData.add(edtLastName.text.toString())                //3
-                userData.add(edtEmail.text.toString())                   //4
-                userData.add(edtMobile.text.toString())                  //5
-                userData.add(edtBirthday.text.toString())                //6
-                userData.add(spinnerAccess.getSelectedItem().toString()) //7
+                userData.add(edtFirstName.text.toString())               //0
+                userData.add(edtLastName.text.toString())                //1
+                userData.add(edtEmail.text.toString())                   //2
+                userData.add(edtMobile.text.toString())                  //3
+                userData.add(edtBirthday.text.toString())                //4
+                userData.add(spinnerAccess.getSelectedItem().toString()) //5
+                if (username != null) {
+                    userData.add(username)
+                } //6
 
                 bundle.putStringArrayList("userData", userData)
 
@@ -148,16 +169,10 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             }
         }
 
-        btnMainMenu.setOnClickListener {
-            nav_view.setCheckedItem(R.id.nav_mainMenu)
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, MainMenuFragment()).commit()
-        }
-
-        //Populating the spinner
-        val accesses = resources.getStringArray(R.array.Accesses)
-        val adapter = ArrayAdapter(rootView.getContext(), R.layout.activity_spinner, R.id.txtSpinner, accesses)
-        spinnerAccess.adapter = adapter
-
         return rootView
+    }
+
+    override fun getTheme(): Int {
+        return R.style.NoBackgroundDialogTheme
     }
 }

@@ -13,15 +13,17 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.DialogFragment
+import com.google.android.material.navigation.NavigationView
 
-class FragmentClass : DialogFragment(){
+class RegisterConfirmFragment : DialogFragment(){
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        var rootView : View = inflater.inflate(R.layout.activity_fragment, container, false)
+        var rootView : View = inflater.inflate(R.layout.activity_register_confirm, container, false)
+        val nav_view : NavigationView = requireActivity().findViewById(R.id.nav_view)
 
         var constraintLayoutShadow : ConstraintLayout = rootView.findViewById(R.id.constraintLayoutShadow)
         var fade_in : Animation = AnimationUtils.loadAnimation(rootView.context,R.anim.fade_in)
@@ -74,6 +76,7 @@ class FragmentClass : DialogFragment(){
             Log.i("object", registerObject.toString())
             constraintLayoutShadow.setAnimation(fade_out)
             dismiss()
+            nav_view.setCheckedItem(R.id.nav_login)
             requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, LoginFragment()).commit()
         }
         return rootView

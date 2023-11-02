@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ICS26011 MP3"
+        android:text="ICS26011 MP4"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20sp"/>

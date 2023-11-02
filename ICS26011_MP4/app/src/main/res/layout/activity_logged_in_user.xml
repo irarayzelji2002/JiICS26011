@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".MainActivity"
+    tools:context=".LoggedInUserActivity"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -37,10 +37,10 @@
             app:layout_constraintTop_toBottomOf="@id/toolbar">
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragment_container"
-                android:name="com.example.ics26011_mp4.MainMenuFragment"
+                android:name="com.example.ics26011_mp4.HomeFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:layout="@layout/fragment_main_menu" />
+                tools:layout="@layout/fragment_home" />
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -49,9 +49,9 @@
         android:layout_height="match_parent"
         android:id="@+id/nav_view"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_menu_beforelogin"
+        app:menu="@menu/nav_menu_afterloginuser"
         android:layout_gravity="start"
         app:itemIconTint="@color/color_drawer_item"
         app:itemTextColor="@color/color_drawer_item"
-        app:itemBackground="@android:color/transparent"/>
+        app:itemBackground="@android:color/transparent" />
 </androidx.drawerlayout.widget.DrawerLayout>

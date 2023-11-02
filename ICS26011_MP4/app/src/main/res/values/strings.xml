@@ -13,6 +13,12 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="greeting">Hello %1$s!</string>
+    <string name="name">%1$s %2$s</string>
+    <string name="viewUserTitle">View %1$s Details</string>
+    <string name="editUserTitle">Edit %1$s Details</string>
+    <string name="editConfirmUserTitle">Proceed updating %1$s with this information?</string>
+    <string name="deleteUserTitle">Are you sure you want to delete %1$s?</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
