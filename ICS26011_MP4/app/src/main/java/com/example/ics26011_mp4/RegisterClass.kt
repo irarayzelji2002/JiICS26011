@@ -97,36 +97,44 @@ class RegisterClass {
     }
 
     fun updateUserData(username : String, detail : String, update: String) {
-        val matchUsername : Optional<UserInfo>? = userArray.stream().filter { UserInfo -> UserInfo.username.equals(username)}.findFirst()
-        Log.i("RegisterClass_updateUserData_matchUsername", matchUsername.toString())
-        var info = ""
-        if(matchUsername!!.isPresent()) {
-            var user = matchUsername.get()
-            var index = userArray.indexOf(user)
-            if(detail=="firstname") {
-                var updatedUser = UserInfo(user.username,user.password,update,user.lastname,user.email,user.mobilenumber,user.birthday,user.access)
-                userArray.set(index,updatedUser)
+        try {
+            val matchUsername : Optional<UserInfo>? = userArray.stream().filter { UserInfo -> UserInfo.username.equals(username)}.findFirst()
+            Log.i("RegisterClass_updateUserData_matchUsername", matchUsername.toString())
+            var info = ""
+            if(matchUsername!!.isPresent()) {
+                var user = matchUsername.get()
+                var index = userArray.indexOf(user)
+                if(detail=="firstname") {
+                    var updatedUser = UserInfo(user.username,user.password,update,user.lastname,user.email,user.mobilenumber,user.birthday,user.access)
+                    userArray.set(index,updatedUser)
+                }
+                else if(detail=="lastname") {
+                    var updatedUser = UserInfo(user.username,user.password,user.firstname,update,user.email,user.mobilenumber,user.birthday,user.access)
+                    userArray.set(index,updatedUser)
+                }
+                else if(detail=="email") {
+                    var updatedUser = UserInfo(user.username,user.password,user.firstname,user.lastname,update,user.mobilenumber,user.birthday,user.access)
+                    userArray.set(index,updatedUser)
+                }
+                else if(detail=="mobilenumber") {
+                    var updatedUser = UserInfo(user.username,user.password,user.firstname,user.lastname,user.email,update,user.birthday,user.access)
+                    userArray.set(index,updatedUser)
+                }
+                else if(detail=="birthday") {
+                    var updatedUser = UserInfo(user.username,user.password,user.firstname,user.lastname,user.email,user.mobilenumber,update,user.access)
+                    userArray.set(index,updatedUser)
+                }
+                else if(detail=="access") {
+                    var updatedUser = UserInfo(user.username,user.password,user.firstname,user.lastname,user.email,user.mobilenumber,user.birthday,update)
+                    userArray.set(index,updatedUser)
+                }
+                else if(detail=="password") {
+                    var updatedUser = UserInfo(user.username,update,user.firstname,user.lastname,user.email,user.mobilenumber,user.birthday,user.access)
+                    userArray.set(index,updatedUser)
+                }
             }
-            else if(detail=="lastname") {
-                var updatedUser = UserInfo(user.username,user.password,user.firstname,update,user.email,user.mobilenumber,user.birthday,user.access)
-                userArray.set(index,updatedUser)
-            }
-            else if(detail=="email") {
-                var updatedUser = UserInfo(user.username,user.password,user.firstname,user.lastname,update,user.mobilenumber,user.birthday,user.access)
-                userArray.set(index,updatedUser)
-            }
-            else if(detail=="mobilenumber") {
-                var updatedUser = UserInfo(user.username,user.password,user.firstname,user.lastname,user.email,update,user.birthday,user.access)
-                userArray.set(index,updatedUser)
-            }
-            else if(detail=="birthday") {
-                var updatedUser = UserInfo(user.username,user.password,user.firstname,user.lastname,user.email,user.mobilenumber,update,user.access)
-                userArray.set(index,updatedUser)
-            }
-            else if(detail=="access") {
-                var updatedUser = UserInfo(user.username,user.password,user.firstname,user.lastname,user.email,user.mobilenumber,user.birthday,update)
-                userArray.set(index,updatedUser)
-            }
+        } catch (e : Exception) {
+            Log.e("RegisterClass_updateUserData_error", e.message.toString())
         }
     }
 }

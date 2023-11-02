@@ -22,16 +22,8 @@ class UsersEditConfirm : DialogFragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         var rootView : View = inflater.inflate(R.layout.activity_users_edit_confirm, container, false)
-        val usersEditFragmentView = inflater.inflate(R.layout.activity_users_edit, container, false)
         val usersFragmentView = inflater.inflate(R.layout.fragment_users, container, false)
-        val adminActivity = inflater.inflate(R.layout.activity_logged_in_admin, container, false)
-
-        val nav_view : NavigationView = requireActivity().findViewById(R.id.nav_view)
-
-        var fade_in : Animation = AnimationUtils.loadAnimation(rootView.context,R.anim.fade_in)
-        var fade_out : Animation = AnimationUtils.loadAnimation(rootView.context,R.anim.fade_out)
 
         var bundle_argument = arguments
         var userData = bundle_argument!!.getStringArrayList("userData")

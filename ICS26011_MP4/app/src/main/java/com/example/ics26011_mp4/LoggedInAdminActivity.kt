@@ -30,13 +30,14 @@ class LoggedInAdminActivity : AppCompatActivity(), NavigationView.OnNavigationIt
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).commit()
             navView.setCheckedItem(R.id.nav_home)
         }
-        
+
         var intent = intent.extras
 
         var username = intent?.getString("User")
         var from = intent?.getString("From")
         when(from) {
             "UsersEditConfirm" -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container, UsersFragment()).commit()
+            "UsersEditPass" -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container, UsersFragment()).commit()
         }
     }
 

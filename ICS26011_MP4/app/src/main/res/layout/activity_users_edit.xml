@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".UsersEdit">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayoutShadow"
@@ -266,23 +267,37 @@
                     </LinearLayout>
                 </ScrollView>
 
+                <Button
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/orange"
+                    android:textColor="@color/white"
+                    android:text="Update"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal" />
+
                 <LinearLayout
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:orientation="horizontal"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20dp">
 
                     <Button
-                        android:id="@+id/btnUpdate"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/btnChangePassword"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@color/orange"
-                        android:textColor="@color/white"
-                        android:text="Update" />
-
+                        android:layout_weight="0"
+                        android:text="Change Password"
+                        android:textColor="@color/darkgrey"
+                        android:padding="0dp"
+                        app:backgroundTint="@android:color/white"
+                        app:strokeColor="@color/darkgrey"
+                        app:strokeWidth="2dp"
+                        android:layout_marginRight="10dp"/>
                     <Button
                         android:id="@+id/btnCancel"
                         android:layout_width="wrap_content"
@@ -290,12 +305,23 @@
                         android:layout_weight="1"
                         android:text="Cancel"
                         android:textColor="@color/darkgrey"
+                        android:padding="0dp"
                         app:backgroundTint="@android:color/white"
                         app:strokeColor="@color/darkgrey"
                         app:strokeWidth="2dp"
-                        android:layout_marginBottom="20dp"/>
+                        android:layout_marginRight="10dp"/>
+                    <Button
+                        android:id="@+id/btnReset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Reset"
+                        android:textColor="@color/darkgrey"
+                        android:padding="0dp"
+                        app:backgroundTint="@android:color/white"
+                        app:strokeColor="@color/darkgrey"
+                        app:strokeWidth="2dp" />
                 </LinearLayout>
-
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

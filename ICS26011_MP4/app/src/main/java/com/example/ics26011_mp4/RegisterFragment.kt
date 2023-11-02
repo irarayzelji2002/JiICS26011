@@ -52,7 +52,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         var txtEmailErr : TextView = rootView.findViewById(R.id.txtEmailErr)
         var txtMobileErr : TextView = rootView.findViewById(R.id.txtMobileNumberErr)
         var txtBirthdayErr : TextView = rootView.findViewById(R.id.txtBitrthdayErr)
-
+        txtPasswordErr.setVisibility(View.GONE)
+        
         //Setting of onclick listeners
         edtBirthday.setOnClickListener {
             val calendar : Calendar = Calendar.getInstance()
@@ -88,7 +89,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         })
 
         btnRegister.setOnClickListener {
-            //showConfirmationDialog()
+            txtPasswordErr.setVisibility(View.GONE)
 
             var validationObject = ValidationClass()
             val (go1, error1) = validationObject.ValidateUsername(edtUsername.text.toString())
@@ -114,6 +115,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 ("$go1"=="false" || "$go2"=="false" || "$go3"=="false" || "$go4"=="false" || "$go5"=="false" || "$go6"=="false" || "$go7"=="false").toString()
             )
             if("$go1"=="false" || "$go2"=="false" || "$go3"=="false" || "$go4"=="false" || "$go5"=="false" || "$go6"=="false" || "$go7"=="false") {
+                if("$go2"=="false") {
+                    txtPasswordErr.setVisibility(View.VISIBLE)
+                }
                 txtUsernameErr.text = ErrUsername
                 txtPasswordErr.text=ErrPassword
                 txtFirstNameErr.text=ErrFirstName

@@ -30,7 +30,6 @@ class UsersEdit : DialogFragment(){
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.activity_users_edit, container, false)
-        val confirmView = inflater.inflate(R.layout.activity_users_edit_confirm, container, false)
 
         var bundle_argument = arguments
         var username = bundle_argument!!.getString("user")
@@ -45,9 +44,10 @@ class UsersEdit : DialogFragment(){
 
         //Declaration of Buttons
         var btnUpdate : Button = rootView.findViewById(R.id.btnUpdate)
+        var btnChangePass : Button = rootView.findViewById(R.id.btnChangePassword)
         var btnCancel : Button = rootView.findViewById(R.id.btnCancel)
+        var btnReset : Button = rootView.findViewById(R.id.btnReset)
         var btnExit : ImageButton = rootView.findViewById(R.id.btnExit)
-        var btnContinue : Button = confirmView.findViewById(R.id.btnContinue)
         //Declaration of EditText
         var edtFirstName : EditText = rootView.findViewById(R.id.edtFirstName)
         var edtLastName : EditText = rootView.findViewById(R.id.edtLastName)
@@ -113,18 +113,6 @@ class UsersEdit : DialogFragment(){
             override fun afterTextChanged(p0: Editable?) {}
         })
 
-        btnCancel.setOnClickListener {
-            constraintLayoutShadow.setAnimation(fade_out)
-            dismiss()
-        }
-        btnExit.setOnClickListener {
-            constraintLayoutShadow.setAnimation(fade_out)
-            dismiss()
-        }
-        btnContinue.setOnClickListener {
-            constraintLayoutShadow.setAnimation(fade_out)
-            dismiss()
-        }
         btnUpdate.setOnClickListener {
             var validationObject = ValidationClass()
             val (go3, error3) = validationObject.ValidateFirstName(edtFirstName.text.toString())
@@ -165,8 +153,34 @@ class UsersEdit : DialogFragment(){
 
                 fragmentObject.arguments = bundle
                 fragmentObject.show(requireActivity().supportFragmentManager, "Custom Fragment")
-                Log.i("userData", userData.toString())
+                Log.i("UsersEdit_userData", userData.toString())
             }
+        }
+        btnChangePass.setOnClickListener {
+            var fragmentObject = UsersEditPass()
+            fragmentObject.setCancelable(false)
+
+            var bundle = Bundle()
+            bundle.putString("user", username)
+
+            fragmentObject.arguments = bundle
+            fragmentObject.show(requireActivity().supportFragmentManager, "Custom Fragment")
+        }
+        btnCancel.setOnClickListener {
+            constraintLayoutShadow.setAnimation(fade_out)
+            dismiss()
+        }
+        btnReset.setOnClickListener {
+            edtFirstName.setText(username?.let { registerObject.getUserData(it, "firstname") })
+            edtLastName.setText(username?.let { registerObject.getUserData(it, "lastname") })
+            edtEmail.setText(username?.let { registerObject.getUserData(it, "email") })
+            edtMobile.setText(username?.let { registerObject.getUserData(it, "mobilenumber") })
+            edtBirthday.setText(username?.let { registerObject.getUserData(it, "birthday") })
+            spinnerAccess.setSelection(accesses.indexOf(username?.let { registerObject.getUserData(it, "access") }))
+        }
+        btnExit.setOnClickListener {
+            constraintLayoutShadow.setAnimation(fade_out)
+            dismiss()
         }
 
         return rootView
