@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "566047552170",
+    "project_id": "kotlinproject-1812c",
+    "storage_bucket": "kotlinproject-1812c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566047552170:android:c7e94833cf6ff86a7d96d3",
+        "android_client_info": {
+          "package_name": "com.example.ics26011_activity_110723_recyclerview"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq0oPh6Ops6_1LuYjH0E7miHnRoCUNIEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

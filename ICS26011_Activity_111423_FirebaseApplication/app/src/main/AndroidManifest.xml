@@ -10,13 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ICS26011_Activity_110723_RecyclerView"
+        android:theme="@style/Theme.ICS26011_Activity_111423_FirebaseApplication"
         tools:targetApi="31">
         <activity
-            android:name=".GetShared"
-            android:exported="false" />
-        <activity
-            android:name=".SharedActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
     </application>
 
 </manifest>
